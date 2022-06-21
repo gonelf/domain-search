@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input id="search" type="text" name="" value="">
+    <input id="go" type="button" name="" value="search">
+    <div class="result">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $("#go").click(()=>{
+        var base = "https://api.namecheap.com/xml.response?ApiUser=gonelf&ApiKey=81f2b153c53c436389a6cbe9482f3881&UserName=gonelf&Command=namecheap.domains.check&ClientIp=192.168.1.109&DomainList=";
+        var domainList = "gonelf.com,goncalo.pm";
+        var url = base+domainList;
+        $.get( base+domainList, function( data ) {
+          $( ".result" ).html( data );
+          console.log(data);
+        });
+
+       //  $.ajax({
+       //   url: url,
+       //   type: "GET",
+       //   beforeSend: function(xhr){xhr.setRequestHeader('Origin', '79.169.178.176');},
+       //   success: function(data) { console.log(data); }
+       // });
+      });
+    </script>
+  </body>
+</html>
